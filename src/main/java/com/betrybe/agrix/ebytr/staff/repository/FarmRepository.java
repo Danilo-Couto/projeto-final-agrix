@@ -3,9 +3,6 @@ package com.betrybe.agrix.ebytr.staff.repository;
 import com.betrybe.agrix.ebytr.staff.entity.Farm;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-/**
- * The interface Fazenda repository.
- */
 public interface FarmRepository extends JpaRepository<Farm, Long> {
 
 }

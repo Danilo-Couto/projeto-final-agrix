@@ -6,17 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-/**
- * The interface Fertilizer repository.
- */
 public interface FertilizerRepository extends JpaRepository<Fertilizer, Long> {
 
-  /**
-   * Find fertilizers by crop list.
-   *
-   * @param id the id
-   * @return the list
-   */
   @Query(
       value = "SELECT fertilizer.* FROM fertilizer "
           + "JOIN crop_fertilizer as cf ON fertilizer_id = cf.crop_id "

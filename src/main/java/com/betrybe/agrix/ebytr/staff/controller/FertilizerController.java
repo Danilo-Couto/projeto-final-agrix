@@ -15,9 +15,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * The type Fertilizer controller.
- */
 @RestController
 @RequestMapping("/fertilizers")
 public class FertilizerController {
@@ -25,21 +22,10 @@ public class FertilizerController {
   @Autowired
   private final FertilizerService fertilizerService;
 
-  /**
-   * Instantiates a new Fertilizer controller.
-   *
-   * @param fertilizerService the fertilizer service
-   */
   public FertilizerController(FertilizerService fertilizerService) {
     this.fertilizerService = fertilizerService;
   }
 
-  /**
-   * Create ferlizer response entity.
-   *
-   * @param fertilizerCreationDto the fertilizer creation dto
-   * @return the response entity
-   */
   @PostMapping
   public ResponseEntity<Fertilizer> createFerlizer(
       @RequestBody FertilizerCreationDto fertilizerCreationDto
@@ -50,11 +36,6 @@ public class FertilizerController {
     return ResponseEntity.status(HttpStatus.CREATED).body(responseDto.data());
   }
 
-  /**
-   * Gets fertilizers.
-   *
-   * @return the fertilizers
-   */
   @GetMapping
   public ResponseEntity<List<Fertilizer>> getFertilizers() {
     List<Fertilizer> fertilizers = fertilizerService.getAll();
@@ -64,12 +45,6 @@ public class FertilizerController {
   }
 
 
-  /**
-   * Gets fertilizer by id.
-   *
-   * @param fertilizerId the fertilizer id
-   * @return the fertilizer by id
-   */
   @GetMapping("/{fertilizerId}")
   public ResponseEntity<Fertilizer> getFertilizerById(
       @PathVariable Long fertilizerId) {

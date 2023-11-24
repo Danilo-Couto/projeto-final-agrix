@@ -32,6 +32,12 @@ public class Person {
   public Person() {
   }
 
+  public Person(Long id, String username, Role role) {
+    this.id = id;
+    this.username = username;
+    this.role = role;
+  }
+
   /**
    * Gets id.
    *
@@ -66,15 +72,6 @@ public class Person {
    */
   public void setUsername(String username) {
     this.username = username;
-  }
-
-  /**
-   * Gets password.
-   *
-   * @return the password
-   */
-  public String getPassword() {
-    return password;
   }
 
   /**

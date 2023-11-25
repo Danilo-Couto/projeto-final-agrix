@@ -6,6 +6,9 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
+/**
+ * The type Test helpers.
+ */
 @Component
 public class TestHelpers implements ApplicationContextAware {
 
@@ -16,6 +19,12 @@ public class TestHelpers implements ApplicationContextAware {
     TestHelpers.objectMapper = applicationContext.getBean(ObjectMapper.class);
   }
 
+  /**
+   * Object to json string.
+   *
+   * @param obj the obj
+   * @return the string
+   */
   public static String objectToJson(Object obj) {
     try {
       return objectMapper.writeValueAsString(obj);

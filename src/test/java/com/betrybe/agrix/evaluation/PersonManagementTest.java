@@ -27,6 +27,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * The type Person management test.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -35,14 +38,28 @@ import org.springframework.web.context.WebApplicationContext;
 @Execution(ExecutionMode.CONCURRENT)
 public class PersonManagementTest {
 
+  /**
+   * The Mock mvc.
+   */
   MockMvc mockMvc;
 
+  /**
+   * The Wac.
+   */
   @Autowired
   WebApplicationContext wac;
 
+  /**
+   * The Object mapper.
+   */
   @Autowired
   ObjectMapper objectMapper;
 
+  /**
+   * Sets .
+   *
+   * @throws Exception the exception
+   */
   @BeforeEach
   public void setup() throws Exception {
     // We need this to make sure the response body is in UTF-8,
@@ -54,6 +71,11 @@ public class PersonManagementTest {
         .build();
   }
 
+  /**
+   * Test person creation.
+   *
+   * @throws Exception the exception
+   */
   @Test
   @DisplayName("2- Crie a rota POST /persons")
   void testPersonCreation() throws Exception {

@@ -6,6 +6,9 @@ import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultHandler;
 
+/**
+ * The type Simple result handler.
+ */
 public class SimpleResultHandler implements ResultHandler {
 
   @Override

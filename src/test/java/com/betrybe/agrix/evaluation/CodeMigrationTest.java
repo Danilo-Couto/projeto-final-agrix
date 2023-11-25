@@ -13,15 +13,26 @@ import org.springframework.web.servlet.mvc.condition.PathPatternsRequestConditio
 import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
+/**
+ * The type Code migration test.
+ */
 @SpringBootTest
 @ActiveProfiles("test")
 @DisplayName("Req 01")
 class CodeMigrationTest {
 
+  /**
+   * The Handler mapping.
+   */
   @Autowired
   @Qualifier("requestMappingHandlerMapping")
   RequestMappingHandlerMapping handlerMapping;
 
+  /**
+   * Test endpoints exist.
+   *
+   * @throws Exception the exception
+   */
   @Test
   @DisplayName("1- Migre seu código da Fase B para este projeto (Fase C)")
   void testEndpointsExist() throws Exception {

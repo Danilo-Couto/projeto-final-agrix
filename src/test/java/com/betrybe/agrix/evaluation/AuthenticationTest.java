@@ -29,6 +29,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * The type Authentication test.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -37,14 +40,28 @@ import org.springframework.web.context.WebApplicationContext;
 @Execution(ExecutionMode.CONCURRENT)
 public class AuthenticationTest {
 
+  /**
+   * The Mock mvc.
+   */
   MockMvc mockMvc;
 
+  /**
+   * The Wac.
+   */
   @Autowired
   WebApplicationContext wac;
 
+  /**
+   * The Object mapper.
+   */
   @Autowired
   ObjectMapper objectMapper;
 
+  /**
+   * Sets .
+   *
+   * @throws Exception the exception
+   */
   @BeforeEach
   public void setup() throws Exception {
     // We need this to make sure the response body is in UTF-8,
@@ -57,6 +74,11 @@ public class AuthenticationTest {
         .build();
   }
 
+  /**
+   * Test login.
+   *
+   * @throws Exception the exception
+   */
   @Test
   @DisplayName("3- Adicione autenticação no projeto")
   void testLogin() throws Exception {
@@ -67,6 +89,12 @@ public class AuthenticationTest {
     testLoginSuccess(person);
   }
 
+  /**
+   * Test login fail.
+   *
+   * @param person the person
+   * @throws Exception the exception
+   */
   void testLoginFail(MockPerson person) throws Exception {
     Map<String, Object> loginInfo = Map.of(
         "username", person.get("username"),
@@ -90,6 +118,12 @@ public class AuthenticationTest {
 
   }
 
+  /**
+   * Test login success.
+   *
+   * @param person the person
+   * @throws Exception the exception
+   */
   void testLoginSuccess(MockPerson person) throws Exception {
     Map<String, Object> loginInfo = Map.of(
         "username", person.get("username"),
@@ -112,6 +146,12 @@ public class AuthenticationTest {
     );
   }
 
+  /**
+   * Is jwt boolean.
+   *
+   * @param token the token
+   * @return the boolean
+   */
   public boolean isJwt(String token) {
     if (token == null || token.isEmpty()) {
       return false;
@@ -141,10 +181,18 @@ public class AuthenticationTest {
 
   private static class LoginResponse extends HashMap<String, String> {
 
+    /**
+     * Instantiates a new Login response.
+     */
     public <K, V> LoginResponse() {
       super();
     }
 
+    /**
+     * Instantiates a new Login response.
+     *
+     * @param source the source
+     */
     public <K, V> LoginResponse(Map<K, V> source) {
       super((Map<String, String>) source);
     }

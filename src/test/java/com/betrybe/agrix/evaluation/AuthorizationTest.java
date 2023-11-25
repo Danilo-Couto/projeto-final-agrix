@@ -33,6 +33,9 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+/**
+ * The type Authorization test.
+ */
 @SpringBootTest
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
@@ -41,14 +44,28 @@ import org.springframework.web.context.WebApplicationContext;
 @Execution(ExecutionMode.CONCURRENT)
 public class AuthorizationTest {
 
+  /**
+   * The Mock mvc.
+   */
   MockMvc mockMvc;
 
+  /**
+   * The Wac.
+   */
   @Autowired
   WebApplicationContext wac;
 
+  /**
+   * The Object mapper.
+   */
   @Autowired
   ObjectMapper objectMapper;
 
+  /**
+   * Sets .
+   *
+   * @throws Exception the exception
+   */
   @BeforeEach
   public void setup() throws Exception {
     // We need this to make sure the response body is in UTF-8,
@@ -61,6 +78,11 @@ public class AuthorizationTest {
         .build();
   }
 
+  /**
+   * Test farms authorization.
+   *
+   * @throws Exception the exception
+   */
   @Test
   @DisplayName("4- Limitar acesso à rota GET /farms")
   void testFarmsAuthorization() throws Exception {
@@ -80,6 +102,11 @@ public class AuthorizationTest {
   }
 
 
+  /**
+   * Test crops authorization.
+   *
+   * @throws Exception the exception
+   */
   @Test
   @DisplayName("5- Limitar acesso à rota GET /crops")
   void testCropsAuthorization() throws Exception {
@@ -99,6 +126,11 @@ public class AuthorizationTest {
   }
 
 
+  /**
+   * Test fertilizers authorization.
+   *
+   * @throws Exception the exception
+   */
   @Test
   @DisplayName("6- Limitar acesso à rota GET /fertilizers")
   void testFertilizersAuthorization() throws Exception {
@@ -186,10 +218,18 @@ public class AuthorizationTest {
 
   private static class LoginResponse extends HashMap<String, String> {
 
+    /**
+     * Instantiates a new Login response.
+     */
     public <K, V> LoginResponse() {
       super();
     }
 
+    /**
+     * Instantiates a new Login response.
+     *
+     * @param source the source
+     */
     public <K, V> LoginResponse(Map<K, V> source) {
       super((Map<String, String>) source);
     }

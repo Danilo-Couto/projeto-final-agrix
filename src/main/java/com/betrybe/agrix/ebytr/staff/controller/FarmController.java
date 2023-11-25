@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * The type Farm controller.
+ */
 @RestController
 @RequestMapping("/farms")
 public class FarmController {
@@ -28,11 +31,23 @@ public class FarmController {
   @Autowired
   private final CropService cropService;
 
+  /**
+   * Instantiates a new Farm controller.
+   *
+   * @param farmService the farm service
+   * @param cropService the crop service
+   */
   public FarmController(FarmService farmService, CropService cropService) {
     this.farmService = farmService;
     this.cropService = cropService;
   }
 
+  /**
+   * Create fazenda response entity.
+   *
+   * @param farmCreationDto the farm creation dto
+   * @return the response entity
+   */
   @PostMapping
   public ResponseEntity<Farm> createFazenda(@RequestBody FarmCreationDto farmCreationDto) {
     Farm newFarm = farmService.create(farmCreationDto.toEntity());
@@ -41,6 +56,11 @@ public class FarmController {
     return ResponseEntity.status(HttpStatus.CREATED).body(responseDto.data());
   }
 
+  /**
+   * Gets all fazendas.
+   *
+   * @return the all fazendas
+   */
   @GetMapping
   public ResponseEntity<List<Farm>> getAllFazendas() {
     List<Farm> farms = farmService.getAll();
@@ -49,6 +69,12 @@ public class FarmController {
     return ResponseEntity.status(HttpStatus.OK).body(responseDto.data());
   }
 
+  /**
+   * Gets by id.
+   *
+   * @param farmId the farm id
+   * @return the by id
+   */
   @GetMapping("/{farmId}")
   public ResponseEntity<Farm> getById(@PathVariable Long farmId) {
     Farm farm = farmService.getById(farmId);
@@ -57,6 +83,13 @@ public class FarmController {
     return ResponseEntity.status(HttpStatus.OK).body(responseDto.data());
   }
 
+  /**
+   * Create crop response entity.
+   *
+   * @param cropCreationDto the crop creation dto
+   * @param farmId          the farm id
+   * @return the response entity
+   */
   @PostMapping("{farmId}/crops")
   public ResponseEntity<Crop> createCrop(
       @RequestBody CropCreationDto cropCreationDto,
@@ -69,6 +102,12 @@ public class FarmController {
     return ResponseEntity.status(HttpStatus.CREATED).body(responseDto.data());
   }
 
+  /**
+   * Gets crops by farm.
+   *
+   * @param farmId the farm id
+   * @return the crops by farm
+   */
   @GetMapping("/{farmId}/crops")
   public ResponseEntity<List<Crop>> getCropsByFarm(@PathVariable Long farmId) {
     Farm farm = farmService.getById(farmId);

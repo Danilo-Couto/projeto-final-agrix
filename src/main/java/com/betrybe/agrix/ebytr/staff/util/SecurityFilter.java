@@ -22,7 +22,11 @@ public class SecurityFilter extends OncePerRequestFilter {
   private final TokenService tokenService;
   private final PersonService personService;
 
-  /** Constructor method. */
+  /**
+   * Constructor method.  @param tokenService the token service
+   *
+   * @param personService the person service
+   */
   @Autowired
   public SecurityFilter(TokenService tokenService, PersonService personService) {
     this.tokenService = tokenService;

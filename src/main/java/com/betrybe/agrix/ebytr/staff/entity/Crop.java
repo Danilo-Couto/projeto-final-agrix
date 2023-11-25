@@ -12,6 +12,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Crop.
+ */
 @Entity
 public class Crop {
 
@@ -33,9 +36,21 @@ public class Crop {
   @JoinColumn(name = "farm_id")
   private Farm farm;
 
+  /**
+   * Instantiates a new Crop.
+   */
   public Crop() {
   }
 
+  /**
+   * Instantiates a new Crop.
+   *
+   * @param name        the name
+   * @param plantedArea the planted area
+   * @param farm        the farm
+   * @param plantedDate the planted date
+   * @param harvestDate the harvest date
+   */
   public Crop(String name, Double plantedArea, Farm farm, LocalDate plantedDate,
       LocalDate harvestDate) {
     this.name = name;
@@ -45,51 +60,111 @@ public class Crop {
     this.harvestDate = harvestDate;
   }
 
+  /**
+   * Gets id.
+   *
+   * @return the id
+   */
   public Long getId() {
     return id;
   }
 
+  /**
+   * Gets name.
+   *
+   * @return the name
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Sets name.
+   *
+   * @param name the name
+   */
   public void setName(String name) {
     this.name = name;
   }
 
+  /**
+   * Gets planted area.
+   *
+   * @return the planted area
+   */
   public Double getPlantedArea() {
     return plantedArea;
   }
 
 
+  /**
+   * Sets planted area.
+   *
+   * @param plantedArea the planted area
+   */
   public void setPlantedArea(Double plantedArea) {
     this.plantedArea = plantedArea;
   }
 
+  /**
+   * Sets size.
+   *
+   * @param size the size
+   */
   public void setSize(Double size) {
     this.plantedArea = size;
   }
 
+  /**
+   * Gets farm id.
+   *
+   * @return the farm id
+   */
   public Long getFarmId() {
     return farm.getId();
   }
 
+  /**
+   * Gets planted date.
+   *
+   * @return the planted date
+   */
   public LocalDate getPlantedDate() {
     return plantedDate;
   }
 
+  /**
+   * Sets planted date.
+   *
+   * @param plantedDate the planted date
+   */
   public void setPlantedDate(LocalDate plantedDate) {
     this.plantedDate = plantedDate;
   }
 
+  /**
+   * Gets harvest date.
+   *
+   * @return the harvest date
+   */
   public LocalDate getHarvestDate() {
     return harvestDate;
   }
 
+  /**
+   * Sets harvest date.
+   *
+   * @param harvestDate the harvest date
+   */
   public void setHarvestDate(LocalDate harvestDate) {
     this.harvestDate = harvestDate;
   }
 
+  /**
+   * Add fertilizer.
+   *
+   * @param fertilizer the fertilizer
+   */
   public void addFertilizer(Fertilizer fertilizer) {
     this.fertilizers.add(fertilizer);
   }

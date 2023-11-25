@@ -25,13 +25,18 @@ public class SecurityConfiguration {
   /** Attributes. */
   private final SecurityFilter securityFilter;
 
-  /** Constructor method. */
+  /** Constructor method.  @param securityFilter the security filter */
   @Autowired
   public SecurityConfiguration(SecurityFilter securityFilter) {
     this.securityFilter = securityFilter;
   }
 
-  /** Security filter chain method. */
+  /**
+   * Security filter chain method.  @param httpSecurity the http security
+   *
+   * @return the security filter chain
+   * @throws Exception the exception
+   */
   @Bean
   public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
     return httpSecurity
@@ -46,14 +51,19 @@ public class SecurityConfiguration {
         .build();
   }
 
-  /** Authentication manager method. */
+  /**
+   * Authentication manager method.  @param authenticationConfiguration the authentication configuration
+   *
+   * @return the authentication manager
+   * @throws Exception the exception
+   */
   @Bean
   public AuthenticationManager authenticationManager(
       AuthenticationConfiguration authenticationConfiguration) throws Exception {
     return authenticationConfiguration.getAuthenticationManager();
   }
 
-  /** Password encoder method. */
+  /** Password encoder method.  @return the password encoder */
   @Bean
   public PasswordEncoder passwordEncoder() {
     return new BCryptPasswordEncoder();

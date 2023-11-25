@@ -18,7 +18,11 @@ public class TokenService {
 //      @Value("secret")
   private String secret;
 
-  /** Validate token method. */
+  /**
+   * Validate token method.  @param token the token
+   *
+   * @return the string
+   */
   public String validateToken(String token) {
     Algorithm algorithm = Algorithm.HMAC256(secret);
     return JWT.require(algorithm)
@@ -28,7 +32,11 @@ public class TokenService {
         .getSubject();
   }
 
-  /** Generate token method. */
+  /**
+   * Generate token method.  @param person the person
+   *
+   * @return the string
+   */
   public String generateToken(Person person) {
     Algorithm algorithm = Algorithm.HMAC256(secret);
     return JWT.create()

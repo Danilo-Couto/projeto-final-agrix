@@ -10,17 +10,25 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
+import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  * The type Person.
  */
+@Getter
 @Entity
-@JsonIgnoreProperties({"password", "accountNonExpired", "accountNonLocked", "credentialsNonExpired", "enabled"})
+@JsonIgnoreProperties({"password", "accountNonExpired", "accountNonLocked", "credentialsNonExpired",
+    "enabled"})
 public class Person implements UserDetails, GrantedAuthority {
 
+  /**
+   * -- GETTER --
+   *  Gets id.
+   *
+   * @return the id
+   */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
@@ -30,6 +38,12 @@ public class Person implements UserDetails, GrantedAuthority {
 
   private String password;
 
+  /**
+   * -- GETTER --
+   *  Gets role.
+   *
+   * @return the role
+   */
   private Role role;
 
   /**
@@ -54,25 +68,12 @@ public class Person implements UserDetails, GrantedAuthority {
   }
 
   /**
-   * Gets id.
-   *
-   * @return the id
-   */
-  public Long getId() {
-    return id;
-  }
-
-  /**
    * Sets id.
    *
    * @param id the id
    */
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public String getUsername() {
-    return username;
   }
 
   /**
@@ -84,10 +85,6 @@ public class Person implements UserDetails, GrantedAuthority {
     this.username = username;
   }
 
-  public String getPassword() {
-    return password;
-  }
-
   /**
    * Sets password.
    *
@@ -95,15 +92,6 @@ public class Person implements UserDetails, GrantedAuthority {
    */
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  /**
-   * Gets role.
-   *
-   * @return the role
-   */
-  public Role getRole() {
-    return role;
   }
 
   /**

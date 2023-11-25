@@ -7,21 +7,53 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 import java.util.List;
+import lombok.Getter;
 
 /**
  * The type Fertilizer.
  */
+@Getter
 @Entity
 public class Fertilizer {
 
+  /**
+   * -- GETTER --
+   *  Gets id.
+   *
+   * @return the id
+   */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
+  /**
+   * -- GETTER --
+   *  Gets name.
+   *
+   * @return the name
+   */
   private String name;
+  /**
+   * -- GETTER --
+   *  Gets brand.
+   *
+   * @return the brand
+   */
   private String brand;
+  /**
+   * -- GETTER --
+   *  Gets composition.
+   *
+   * @return the composition
+   */
   private String composition;
 
+  /**
+   * -- GETTER --
+   *  Gets crops.
+   *
+   * @return the crops
+   */
   @ManyToMany(mappedBy = "fertilizers")
   @JsonIgnore
   private List<Crop> crops;
@@ -46,39 +78,12 @@ public class Fertilizer {
   }
 
   /**
-   * Gets id.
-   *
-   * @return the id
-   */
-  public Long getId() {
-    return id;
-  }
-
-  /**
-   * Gets name.
-   *
-   * @return the name
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
    * Sets name.
    *
    * @param name the name
    */
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
-   * Gets brand.
-   *
-   * @return the brand
-   */
-  public String getBrand() {
-    return brand;
   }
 
   /**
@@ -91,30 +96,12 @@ public class Fertilizer {
   }
 
   /**
-   * Gets composition.
-   *
-   * @return the composition
-   */
-  public String getComposition() {
-    return composition;
-  }
-
-  /**
    * Sets composition.
    *
    * @param composition the composition
    */
   public void setComposition(String composition) {
     this.composition = composition;
-  }
-
-  /**
-   * Gets crops.
-   *
-   * @return the crops
-   */
-  public List<Crop> getCrops() {
-    return crops;
   }
 
   /**

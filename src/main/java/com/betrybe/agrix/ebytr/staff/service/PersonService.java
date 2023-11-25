@@ -51,10 +51,6 @@ public class PersonService implements UserDetailsService {
     return personRepository.findByUsername(username);
   }
 
-//  public Person create(Person person) {
-//    return personRepository.save(person);
-//  }
-
   /**
    * Create person.
    *

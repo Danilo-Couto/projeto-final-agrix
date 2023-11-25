@@ -15,7 +15,6 @@ public class TokenService {
 
   /** Attributes. */
   @Value("${api.security.token.secret}")
-//      @Value("secret")
   private String secret;
 
   /**

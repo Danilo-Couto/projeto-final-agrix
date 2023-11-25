@@ -1,6 +1,7 @@
 package com.betrybe.agrix.ebytr.staff.controller;
 
 import com.betrybe.agrix.ebytr.staff.controller.dto.AuthenticationDTO;
+import com.betrybe.agrix.ebytr.staff.controller.dto.AuthenticationDto;
 import com.betrybe.agrix.ebytr.staff.controller.dto.ResponseDto;
 import com.betrybe.agrix.ebytr.staff.controller.dto.TokenDto;
 import com.betrybe.agrix.ebytr.staff.entity.Person;
@@ -46,14 +47,15 @@ public class AuthenticationController {
   /**
    * Login response entity.
    *
-   * @param authenticationDTO the authentication dto
+   * @param authenticationDto the authentication dto
    * @return the response entity
    */
   @PostMapping("/login")
-  public ResponseEntity<TokenDto> login(@RequestBody AuthenticationDTO authenticationDTO){
+  public ResponseEntity<TokenDto> login(@RequestBody AuthenticationDto authenticationDto) {
 
     UsernamePasswordAuthenticationToken usernamePassword =
-        new UsernamePasswordAuthenticationToken(authenticationDTO.username(), authenticationDTO.password());
+        new UsernamePasswordAuthenticationToken(authenticationDto.username(),
+            authenticationDto.password());
     Authentication auth = authenticationManager.authenticate(usernamePassword);
 
     Person person = (Person) auth.getPrincipal();

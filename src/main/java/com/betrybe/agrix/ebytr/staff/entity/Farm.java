@@ -8,21 +8,47 @@ import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 /**
  * The type Farm.
  */
+@Getter
 @Entity
 public class Farm {
 
+  /**
+   * -- GETTER --
+   *  Gets crops.
+   *
+   * @return the crops
+   */
   @OneToMany(mappedBy = "farm")
   @JsonIgnore
   private final List<Crop> crops = new ArrayList<>();
 
+  /**
+   * -- GETTER --
+   *  Gets id.
+   *
+   * @return the id
+   */
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  /**
+   * -- GETTER --
+   *  Gets name.
+   *
+   * @return the name
+   */
   private String name;
+  /**
+   * -- GETTER --
+   *  Gets size.
+   *
+   * @return the size
+   */
   private Double size;
 
   /**
@@ -43,39 +69,12 @@ public class Farm {
   }
 
   /**
-   * Gets id.
-   *
-   * @return the id
-   */
-  public Long getId() {
-    return id;
-  }
-
-  /**
-   * Gets name.
-   *
-   * @return the name
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
    * Sets name.
    *
    * @param name the name
    */
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
-   * Gets size.
-   *
-   * @return the size
-   */
-  public Double getSize() {
-    return size;
   }
 
   /**
@@ -87,12 +86,4 @@ public class Farm {
     this.size = size;
   }
 
-  /**
-   * Gets crops.
-   *
-   * @return the crops
-   */
-  public List<Crop> getCrops() {
-    return crops;
-  }
 }

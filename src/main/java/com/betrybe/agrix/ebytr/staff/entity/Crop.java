@@ -11,6 +11,7 @@ import jakarta.persistence.ManyToOne;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
 
 /**
  * The type Crop.
@@ -25,12 +26,47 @@ public class Crop {
       inverseJoinColumns = @JoinColumn(name = "fertilizer_id")
   )
   private final List<Fertilizer> fertilizers = new ArrayList<>();
+  /**
+   * -- GETTER --
+   *  Gets id.
+   *
+   * @return the id
+   */
+  @Getter
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  /**
+   * -- GETTER --
+   *  Gets name.
+   *
+   * @return the name
+   */
+  @Getter
   private String name;
+  /**
+   * -- GETTER --
+   *  Gets planted area.
+   *
+   * @return the planted area
+   */
+  @Getter
   private Double plantedArea;
+  /**
+   * -- GETTER --
+   *  Gets planted date.
+   *
+   * @return the planted date
+   */
+  @Getter
   private LocalDate plantedDate;
+  /**
+   * -- GETTER --
+   *  Gets harvest date.
+   *
+   * @return the harvest date
+   */
+  @Getter
   private LocalDate harvestDate;
   @ManyToOne
   @JoinColumn(name = "farm_id")
@@ -61,39 +97,12 @@ public class Crop {
   }
 
   /**
-   * Gets id.
-   *
-   * @return the id
-   */
-  public Long getId() {
-    return id;
-  }
-
-  /**
-   * Gets name.
-   *
-   * @return the name
-   */
-  public String getName() {
-    return name;
-  }
-
-  /**
    * Sets name.
    *
    * @param name the name
    */
   public void setName(String name) {
     this.name = name;
-  }
-
-  /**
-   * Gets planted area.
-   *
-   * @return the planted area
-   */
-  public Double getPlantedArea() {
-    return plantedArea;
   }
 
 
@@ -125,30 +134,12 @@ public class Crop {
   }
 
   /**
-   * Gets planted date.
-   *
-   * @return the planted date
-   */
-  public LocalDate getPlantedDate() {
-    return plantedDate;
-  }
-
-  /**
    * Sets planted date.
    *
    * @param plantedDate the planted date
    */
   public void setPlantedDate(LocalDate plantedDate) {
     this.plantedDate = plantedDate;
-  }
-
-  /**
-   * Gets harvest date.
-   *
-   * @return the harvest date
-   */
-  public LocalDate getHarvestDate() {
-    return harvestDate;
   }
 
   /**

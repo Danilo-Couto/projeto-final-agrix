@@ -1,9 +1,7 @@
 package com.betrybe.agrix.ebytr.staff.controller;
 
-import com.betrybe.agrix.ebytr.staff.controller.dto.FarmCreationDto;
 import com.betrybe.agrix.ebytr.staff.controller.dto.PersonCreationDto;
 import com.betrybe.agrix.ebytr.staff.controller.dto.ResponseDto;
-import com.betrybe.agrix.ebytr.staff.entity.Farm;
 import com.betrybe.agrix.ebytr.staff.entity.Person;
 import com.betrybe.agrix.ebytr.staff.service.PersonService;
 import java.util.Optional;
@@ -15,7 +13,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**

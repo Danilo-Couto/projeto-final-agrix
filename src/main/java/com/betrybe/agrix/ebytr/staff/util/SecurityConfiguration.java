@@ -52,8 +52,9 @@ public class SecurityConfiguration {
   }
 
   /**
-   * Authentication manager method.  @param authenticationConfiguration the authentication configuration
+   * Authentication manager method.
    *
+   * @param authenticationConfiguration the authentication configuration
    * @return the authentication manager
    * @throws Exception the exception
    */

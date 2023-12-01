@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 public class TokenService {
 
   /** Attributes. */
-  @Value("${api.security.token.secret}")
+  @Value("${API_SECURITY_TOKEN_SECRET}")
   private String secret;
 
   /**

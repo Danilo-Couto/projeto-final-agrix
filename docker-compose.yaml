@@ -1,10 +1,12 @@
 services:
-
-  mysql:
-    image: mysql:8.0.32
+  postgres:
+    image: postgres:10
+    container_name: postgres_container_agrixDB
     restart: always
-    ports:
-      - 3306:3306
     environment:
-      MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: agrixbdb
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=agrix_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - /home/danilo-couto/Git Repositories/java-001-projeto-final-agrix-fase-c/data/postgres
